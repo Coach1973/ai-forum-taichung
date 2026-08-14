@@ -101,6 +101,7 @@ linear-gradient(135deg,#f7f1e7 0%,#efe3cf 42%,#ead7bb 100%)}
 .speaker-photo{width:100%;aspect-ratio:1/1;border-radius:20px;background:linear-gradient(135deg,#f1e2cf,#e4d4bf);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:900;color:#8a6844;overflow:hidden;border:1px solid #e4d4bf}
 .speaker-photo img{width:100%;height:100%;object-fit:cover}
 .speaker-photo img[src*="speaker-shihyuting"]{object-position:center top}
+.speaker-photo img[src*="speaker-jc"]{object-position:center top}
 .speaker-name{font-size:19px;font-weight:900}
 .speaker-title{font-size:13px;font-weight:800;color:var(--accent);margin-top:2px}
 .speaker-topic{margin-top:6px;font-size:13px;color:var(--muted)}
@@ -234,7 +235,7 @@ footer{padding:36px 0;text-align:center;color:var(--muted-2);font-size:13px}
   <div class="container">
     <div class="eyebrow">講師陣容</div>
     <h2>點擊頭像，看完整講師簡介</h2>
-    <p class="section-lead">5 位講師簡介已就緒，其餘 4 位資料籌備中，確認後第一時間補上。</p>
+    <p class="section-lead">6 位講師簡介已就緒，其餘 3 位資料籌備中，確認後第一時間補上。</p>
 
     <div class="speaker-grid" id="speakerGrid"></div>
   </div>
@@ -327,9 +328,10 @@ footer{padding:36px 0;text-align:center;color:var(--muted-2);font-size:13px}
 <script>
 const SPEAKERS = [
   {
-    day: 'd1', name: '書銘', title: '書銘老師', topic: '一個前出家人如何從0開始用AI打造3套7位數線上事業',
-    photo: 'images/speaker-shuming-placeholder.jpg', hasPhoto: false,
-    bio: '講師簡介籌備中——mentor100 資料庫目前僅有姓名登記，完整簡介與照片待補。', links: []
+    day: 'd1', name: 'JC老師', title: '銘心國際有限公司創辦人｜AI行銷/知識變現專家', topic: '一個前出家人如何從0開始用AI打造3套7位數線上事業',
+    photo: 'images/speaker-jc.jpg', hasPhoto: true,
+    bio: '專長：全台灣最便宜的Threads代操服務／一單成交6位數的顧問式行銷教學／設計讓客戶無法抗拒的產品方案／知識變現與線上課程製作／商業模式策劃。\n\n擅長幫助沒有粉絲、沒有人脈的素人，也能用AI打造屬於自己的百萬線上事業，透過顧問式行銷賣出高單價產品，用AI＋商業模式從0打造自動化變現系統，把「知識」變成「現金流」。\n\n經歷：13年出家經歷／從0開始打造3個7位數線上事業／銘心國際有限公司創辦人／全球商務永續發展協會主任委員／全球商務引薦平台市場發展總監／2個月知識變現百萬／替客戶一個月打造千萬流量、破萬粉絲／中興、政大、清大等各大學演講。',
+    links: [{label:'官網',url:'https://jc-teacher.com/'},{label:'FB',url:'https://www.facebook.com/share/1Eo5Vwb4uq/'},{label:'IG',url:'https://www.instagram.com/jctea.cher'},{label:'Threads',url:'https://www.threads.com/@jctea.cher'},{label:'LINE',url:'https://line.me/R/ti/p/@961iyjcu'}]
   },
   {
     day: 'd1', name: '林佳伶', title: '講師資料籌備中', topic: 'AI製圖與變現圖文邏輯',
