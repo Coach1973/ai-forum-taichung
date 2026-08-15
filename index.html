@@ -102,6 +102,7 @@ linear-gradient(135deg,#f7f1e7 0%,#efe3cf 42%,#ead7bb 100%)}
 .speaker-photo img{width:100%;height:100%;object-fit:cover}
 .speaker-photo img[src*="speaker-shihyuting"]{object-position:center top}
 .speaker-photo img[src*="speaker-jc"]{object-position:center top}
+.speaker-photo img[src*="speaker-liaoweiping"]{object-position:center top}
 .speaker-name{font-size:19px;font-weight:900}
 .speaker-title{font-size:13px;font-weight:800;color:var(--accent);margin-top:2px}
 .speaker-topic{margin-top:6px;font-size:13px;color:var(--muted)}
@@ -235,7 +236,7 @@ footer{padding:36px 0;text-align:center;color:var(--muted-2);font-size:13px}
   <div class="container">
     <div class="eyebrow">講師陣容</div>
     <h2>點擊頭像，看完整講師簡介</h2>
-    <p class="section-lead">6 位講師簡介已就緒，其餘 3 位資料籌備中，確認後第一時間補上。</p>
+    <p class="section-lead">8 位講師簡介已就緒，其餘 1 位資料籌備中，確認後第一時間補上。</p>
 
     <div class="speaker-grid" id="speakerGrid"></div>
   </div>
@@ -334,9 +335,10 @@ const SPEAKERS = [
     links: [{label:'官網',url:'https://jc-teacher.com/'},{label:'FB',url:'https://www.facebook.com/share/1Eo5Vwb4uq/'},{label:'IG',url:'https://www.instagram.com/jctea.cher'},{label:'Threads',url:'https://www.threads.com/@jctea.cher'},{label:'LINE',url:'https://line.me/R/ti/p/@961iyjcu'}]
   },
   {
-    day: 'd1', name: '林佳伶', title: '講師資料籌備中', topic: 'AI製圖與變現圖文邏輯',
-    photo: '', hasPhoto: false,
-    bio: '這位講師目前在 AI 百人導師資料庫中查無記錄，簡介與照片待教練提供或請講師本人登記後補上。', links: []
+    day: 'd1', name: 'Lavi', title: 'LAVision Image 荷緻形象創辦人｜國際形象顧問', topic: 'AI製圖與變現圖文邏輯',
+    photo: 'images/speaker-lavi.jpg', hasPhoto: true,
+    bio: '在AI快速生成內容的時代，Lavi更重視「人的溫度與辨識度」。透過形象策略讓AI產出有溫度的圖文視覺、品牌故事與整體形象策略，讓專業被看見，也讓個人品牌能跨越語言與文化，受到海外華人與國際市場的理解與認同。\n\n她相信，AI可以幫助我們更快創造內容，但真正讓人記住的，始終是人的特色、審美與真實感。\n\nLavi為整體形象顧問，擁有13年以上影劇、舞台與商務形象經驗，專注於企業主、主管、企業接班人與專業人士的個人品牌與身分轉換，整合專業人士的線上線下影響力。',
+    links: [{label:'官網',url:'https://lavisiontw.com'},{label:'IG',url:'https://www.instagram.com/lavisiontw/'},{label:'Threads',url:'https://www.threads.com/@lavisiontw'},{label:'LINE',url:'https://lin.ee/ZWb4gD6'},{label:'GJW',url:'https://www.ganjingworld.com/@lavisiontw'}]
   },
   {
     day: 'both', name: '大樹教練', title: '海餅乾俱樂部創辦人｜AI 導入教練', topic: '兩天主持＋專題分享：只出一張嘴叫AI做事（9/23）／如何將AI導入LINE成為你的生活小幫手（9/24）',
@@ -351,9 +353,10 @@ const SPEAKERS = [
     links: [{label:'FB',url:'https://www.facebook.com/sycheng.giga'},{label:'官網',url:'https://gigaai.studio/'},{label:'IG',url:'https://www.instagram.com/gigaai_studio/'},{label:'LINE',url:'https://lin.ee/1UGw3AH'}]
   },
   {
-    day: 'd1', name: '廖韋評', title: '講師資料籌備中', topic: 'AI時代的簡報速成法',
-    photo: '', hasPhoto: false,
-    bio: '這位講師目前在 AI 百人導師資料庫中查無記錄，簡介與照片待教練提供或請講師本人登記後補上。', links: []
+    day: 'd1', name: '廖韋評', title: '簡報事務所創辦人', topic: 'AI時代的簡報速成法',
+    photo: 'images/speaker-liaoweiping.jpg', hasPhoto: true,
+    bio: '1. 工研院產業學院合作AI講師\n2. 累積 300 場以上的培訓輔導經驗\n3. 連續兩年《百大企業講師推薦TOP100》\n4. 出版《職場第一實用的 AI 簡報術》',
+    links: [{label:'官網',url:'https://www.slidefirm.tw/about'},{label:'FB',url:'https://www.facebook.com/blackrocx0'}]
   },
   {
     day: 'd2', name: '彭晉澄', title: '講師資料籌備中', topic: 'AI 不只是工具，從工作流程重整到人機協作，放大你的專業價值',
