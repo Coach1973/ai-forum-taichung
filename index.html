@@ -259,7 +259,7 @@ footer{padding:36px 0;text-align:center;color:var(--muted-2);font-size:13px}
           <div>✅ 全程實作導向，可帶筆電跟著做</div>
           <div>✅ 報名費含當日午餐＋下午茶</div>
         </div>
-        <a href="https://core.newebpay.com/EPG/MS351059859/aoftN8" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:18px;width:100%">前往報名付款 →</a>
+        <button type="button" onclick="openRegister('day1')" class="btn btn-primary" style="margin-top:18px;width:100%">前往報名付款 →</button>
       </div>
       <div class="price-box">
         <div class="chip">DAY 2</div>
@@ -271,7 +271,7 @@ footer{padding:36px 0;text-align:center;color:var(--muted-2);font-size:13px}
           <div>✅ 全程實作導向，可帶筆電跟著做</div>
           <div>✅ 報名費含當日午餐＋下午茶</div>
         </div>
-        <a href="https://core.newebpay.com/EPG/MS351059859/aoftN8" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:18px;width:100%">前往報名付款 →</a>
+        <button type="button" onclick="openRegister('day2')" class="btn btn-primary" style="margin-top:18px;width:100%">前往報名付款 →</button>
       </div>
       <div class="price-box" style="background:linear-gradient(180deg,#fff3e2 0%,#f3dcb8 100%);border-color:#e6c78e">
         <div class="chip" style="background:var(--accent);color:#fff;border-color:var(--accent)">兩天套票・最划算</div>
@@ -283,7 +283,7 @@ footer{padding:36px 0;text-align:center;color:var(--muted-2);font-size:13px}
           <div>✅ 大樹教練兩天完整陪伴 + 兩場專屬分享</div>
           <div>✅ 報名費含當日午餐＋下午茶</div>
         </div>
-        <a href="https://core.newebpay.com/EPG/MS351059859/aoftN8" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:18px;width:100%">前往報名付款 →</a>
+        <button type="button" onclick="openRegister('combo')" class="btn btn-primary" style="margin-top:18px;width:100%">前往報名付款 →</button>
       </div>
     </div>
     <p style="margin-top:18px;color:var(--muted-2);font-size:13px">✅ 報名費已含當日午餐及下午茶</p>
@@ -307,7 +307,7 @@ footer{padding:36px 0;text-align:center;color:var(--muted-2);font-size:13px}
     <h2>9 月 23、24 日，台中見</h2>
     <p>本頁為概念稿，內容仍在確認中。想直接報名付款，或先加官方 LINE 詢問都可以。</p>
     <div class="btn-row" style="justify-content:center">
-      <a href="https://core.newebpay.com/EPG/MS351059859/aoftN8" target="_blank" rel="noopener" class="btn btn-primary">立即報名付款 →</a>
+      <button type="button" onclick="openRegister('combo')" class="btn btn-primary">立即報名付款 →</button>
       <a href="https://lin.ee/xQcrhfZ" target="_blank" rel="noopener" class="btn btn-secondary">加官方 LINE 詢問 →</a>
     </div>
   </div>
@@ -319,6 +319,29 @@ footer{padding:36px 0;text-align:center;color:var(--muted-2);font-size:13px}
     © 2026 大樹小講
   </div>
 </footer>
+
+<!-- 報名留資料（2026-08-24 新增）：原本三顆「前往報名付款」直接跳藍新金流，
+     報名的人是誰、留什麼電話，教練跟佩佩老師完全不會收到通知，等於報名黑洞。
+     現在先留基本資料 → 寫進 event.bymyway.com 資料庫並即時發 Telegram 通知 → 再跳付款。
+     寫入失敗也絕不擋住付款（fire-and-forget），跟嘉義場 ai-talk 同一套做法。 -->
+<div class="modal-overlay" id="registerModal">
+  <div class="modal-box" style="max-width:480px">
+    <button class="modal-close" onclick="closeRegister()">✕</button>
+    <div class="eyebrow">報名登記</div>
+    <h2 id="registerTitle" style="font-size:24px;margin:6px 0 4px">AI微論壇 台中場</h2>
+    <p style="color:var(--muted);margin:0 0 18px;font-size:14px">先留下聯絡方式，我們才能在活動前通知你會場資訊；送出後會直接前往付款頁面。</p>
+    <form id="registerForm" onsubmit="submitRegistration(event)">
+      <input id="regName" placeholder="姓名 *" required style="width:100%;padding:14px 16px;margin-bottom:10px;border:1px solid #e6d9c6;border-radius:14px;font-size:15px;font-family:inherit">
+      <input id="regPhone" placeholder="手機號碼 *" required inputmode="tel" style="width:100%;padding:14px 16px;margin-bottom:10px;border:1px solid #e6d9c6;border-radius:14px;font-size:15px;font-family:inherit">
+      <input id="regEmail" type="email" placeholder="Email（選填，寄送活動提醒）" style="width:100%;padding:14px 16px;margin-bottom:10px;border:1px solid #e6d9c6;border-radius:14px;font-size:15px;font-family:inherit">
+      <input id="regCompany" placeholder="公司／職稱（選填）" style="width:100%;padding:14px 16px;margin-bottom:16px;border:1px solid #e6d9c6;border-radius:14px;font-size:15px;font-family:inherit">
+      <button type="submit" class="btn btn-primary" style="width:100%">送出並前往付款 →</button>
+    </form>
+    <p style="text-align:center;margin:14px 0 0;font-size:13px">
+      <a href="https://core.newebpay.com/EPG/MS351059859/aoftN8" target="_blank" rel="noopener" style="color:var(--muted-2);text-decoration:underline">不想留資料，直接前往付款</a>
+    </p>
+  </div>
+</div>
 
 <div class="modal-overlay" id="bioModal">
   <div class="modal-box">
@@ -424,6 +447,52 @@ function closeBio(){ document.getElementById('bioModal').classList.remove('show'
 document.getElementById('bioModal').addEventListener('click', e => { if(e.target.id==='bioModal') closeBio(); });
 
 renderSpeakers();
+
+// ===== 報名登記 → 通知 → 付款（2026-08-24 新增）=====
+// 教練 2026-08-24 交辦：「不管透過官網還是個別網站報名，都必須有一致的結果——
+// 報名完成後 Telegram 必須即時發送通知，確保我和佩佩老師都能收到。」
+// 這頁原本只有藍新金流付款連結，報名者資訊完全不落地、也不通知，是三個活動微站裡
+// 唯一的缺口（scripts/event_consistency_check.py 巡檢抓到）。
+const PAYMENT_URL = 'https://core.newebpay.com/EPG/MS351059859/aoftN8';
+const BYMYWAY_API = 'https://event.bymyway.com/api/register';
+// 方案 → 要登記進哪些場次（套票兩天都算報名）。slug 對應 event.db 的 events 表。
+const PLANS = {
+  day1:  { label: 'DAY 1｜9/23（三）單日 $1,800', slugs: ['bigtree-0923'] },
+  day2:  { label: 'DAY 2｜9/24（四）單日 $1,800', slugs: ['bigtree-0924'] },
+  combo: { label: '兩天套票｜9/23+9/24 $2,988', slugs: ['bigtree-0923', 'bigtree-0924'] },
+};
+let currentPlan = 'combo';
+
+function openRegister(plan){
+  currentPlan = PLANS[plan] ? plan : 'combo';
+  document.getElementById('registerTitle').textContent = PLANS[currentPlan].label;
+  document.getElementById('registerForm').reset();
+  document.getElementById('registerModal').classList.add('show');
+}
+function closeRegister(){ document.getElementById('registerModal').classList.remove('show'); }
+document.getElementById('registerModal').addEventListener('click', e => { if(e.target.id==='registerModal') closeRegister(); });
+
+function submitRegistration(e){
+  e.preventDefault();
+  const name = document.getElementById('regName').value.trim();
+  const phone = document.getElementById('regPhone').value.trim();
+  const email = document.getElementById('regEmail').value.trim();
+  const company = document.getElementById('regCompany').value.trim();
+  if(!name || !phone){ alert('請填寫姓名與手機號碼'); return; }
+
+  // fire-and-forget：寫進資料庫＋發 Telegram 給教練與佩佩老師。
+  // 任何失敗都不能擋住付款——報名的人不該因為我們後台的問題而卡住。
+  PLANS[currentPlan].slugs.forEach(slug => {
+    fetch(BYMYWAY_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ slug, name, phone, company, email, source: 'ai-forum-taichung（台中場' + (currentPlan === 'combo' ? '・兩天套票' : '・單日') + '）' })
+    }).catch(()=>{});
+  });
+
+  closeRegister();
+  window.open(PAYMENT_URL, '_blank', 'noopener');
+}
 
 // 倒數計時（以 9/23 09:00 台灣時間為準）
 function updateCountdown(){
