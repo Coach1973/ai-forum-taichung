@@ -462,10 +462,9 @@ const PLANS = {
 let currentPlan = 'combo';
 
 function openRegister(plan){
-  currentPlan = PLANS[plan] ? plan : 'combo';
-  document.getElementById('registerTitle').textContent = PLANS[currentPlan].label;
-  document.getElementById('registerForm').reset();
-  document.getElementById('registerModal').classList.add('show');
+  // 2026-09-22 教練口頭指示：活動取消，緊急止血先擋報名，避免頁面開著繼續有人誤報名
+  alert('抱歉，9/23-24 AI微論壇台中場已取消，暫停報名。');
+  return;
 }
 function closeRegister(){ document.getElementById('registerModal').classList.remove('show'); }
 document.getElementById('registerModal').addEventListener('click', e => { if(e.target.id==='registerModal') closeRegister(); });
